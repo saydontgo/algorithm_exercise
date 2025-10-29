@@ -5,6 +5,7 @@
 using namespace std;
 
 int jump(vector<int>& nums) {
+    // 使用广搜实现的，有更简单的方法使空间复杂度下降到1，且时间更快
     auto target = nums.size() - 1;
     int flag[int(1e4) + 10];
     memset(flag, 0, (int(1e4) + 10) * 4);
