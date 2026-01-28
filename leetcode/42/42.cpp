@@ -21,13 +21,10 @@ public:
         int cur_wall_ind = index - 1;
         while (index <= max_index) {
             if (height[index] >= cur_wall) {
-                res += (index - cur_wall_ind - 1) * cur_wall;
-                for (int i = cur_wall_ind + 1; i < index; i++) {
-                    res -= height[i];
-                }
                 cur_wall = height[index++];
                 cur_wall_ind = index - 1;
             } else {
+                res += cur_wall - height[index];
                 index++;
             }
         }
@@ -38,13 +35,10 @@ public:
 
         while (index >= max_index) {
             if (height[index] >= cur_wall) {
-                res += (cur_wall_ind - index - 1) * cur_wall;
-                for (int i = index + 1; i < cur_wall_ind; i++) {
-                    res -= height[i];
-                }
                 cur_wall = height[index--];
                 cur_wall_ind = index + 1;
             } else {
+                res += cur_wall - height[index];
                 index--;
             }
         }
